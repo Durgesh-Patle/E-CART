@@ -1,0 +1,32 @@
+/* Products.css */
+.product-img {
+    height: 60px;
+    object-fit: contain;
+}
+
+/* Adjust card layout and spacing for smaller screens */
+@media (max-width: 576px) {
+    .product-img {
+        height: 120px;
+    }
+    .card {
+        margin: 0.5rem;
+    }
+}
+
+/* Increase image size on larger screens */
+@media (min-width: 992px) {
+    .product-img {
+        height: 250px;
+    }
+}
+
+/* Center text on small screens and adjust button spacing */
+@media (max-width: 768px) {
+    .display-6 {
+        font-size: 1.75rem;
+    }
+    .btn-group .btn {
+        margin-bottom: 0.5rem;
+    }
+}
