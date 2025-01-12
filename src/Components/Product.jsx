@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import { Link } from 'react-router-dom';
 
 const Product = () => {
@@ -8,6 +8,13 @@ const Product = () => {
     const [product, setProduct] = useState([]);
     const [loading, setLoading] = useState(false);
 
+    let navigate=useNavigate();
+
+    // Route Go To cart.
+    function goToCart(){
+        navigate(`/cart/${id}`);
+    }
+    
     useEffect(() => {
         const getProduct = async () => {
             setLoading(true)
@@ -47,9 +54,9 @@ const Product = () => {
                     <p className='lead'>
                         {product.description}
                     </p>
-                    <button className='btn btn-outline-dark px-4 py-2'>Add to Cart</button>
+                    <button className='btn btn-outline-dark px-4 py-2' onClick={addTocart(product.id)}>Add to Cart</button>
 
-                    <Link className='btn btn-dark ms-2 px-3 py-2' to="/cart">Go to Cart</Link>
+                    <Link className='btn btn-dark ms-2 px-3 py-2' to="/cart" onClick={goToCart}>Go to Cart</Link>
                 </div>
 
             </div>

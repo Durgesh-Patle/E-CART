@@ -1,63 +1,93 @@
 import { Link } from "react-router-dom";
-// import './Navbar.css'
 
 const Navbar = () => {
-    return (
-        <nav className="navbar navbar-expand-lg navbar-light  py-3 shadow-sm" style={{ background: '#FFFFFF', color: '#6B6B6B' }}>
-            <div className="container justify-content-between ">
-                <Link  to="/" className="navbar-brand fw-bold fs-8" to="/" style={{ color: '#6B6B6B' }} >
-                    E-CART
-                </Link>
-                <button
-                    className="navbar-toggler"
-                    type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent"
-                    aria-controls="navbarSupportedContent"
-                    aria-expanded="false"
-                    aria-label="Toggle navigation"
-                >
-                    <span className="navbar-toggler-icon"></span>
-                </button>
+  return (
+    <nav className="bg-white shadow-md py-3">
+      <div className="container mx-auto flex items-center justify-between px-4">
+        {/* Logo */}
+        <Link
+          to="/"
+          className="text-xl font-bold text-gray-700 no-underline"
+        >
+          E-CART
+        </Link>
 
-                <div className="collapse navbar-collapse" id="navbarSupportedContent" >
-                    <ul className="navbar-nav mx-auto mb-2 mb-lg-0 f    ">
-                        <li className="nav-item">
-                            <Link exact className="nav-link" to="/" style={{ color: '#6B6B6B' }}>
-                                Home
-                            </Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link className="nav-link" to="/products" style={{ color: '#6B6B6B' }}>
-                                Products
-                            </Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link className="nav-link" to="/about" style={{ color: '#6B6B6B' }}>
-                                About
-                            </Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link className="nav-link" to="/contact" style={{ color: '#6B6B6B' }}>
-                                Contact
-                            </Link>
-                        </li>
-                    </ul>
-                    <div className="buttons">
-                        <Link to="/login" className="btn btn-outline-success">
-                            <i className="fa fa-sign-in me-1" aria-hidden="true"></i> Login
-                        </Link>
-                        <Link to="/register" className="btn btn-outline-primary ms-2">
-                            <i className="fa fa-user-plus me-1" aria-hidden="true"></i> Register
-                        </Link>
-                        <Link to="/cart" className="btn btn-outline-dark ms-2">
-                            <i className="fa fa-shopping-cart me-1" aria-hidden="true"></i> Cart(0)
-                        </Link>
-                    </div>
-                </div>
-            </div>
-        </nav>
-    );
+        {/* Toggle Button (for mobile view) */}
+        <button
+          className="lg:hidden text-gray-700 focus:outline-none no-underline"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span className="text-2xl">☰</span>
+        </button>
+
+        {/* Navigation Links */}
+        <div className="hidden lg:flex lg:items-center lg:gap-6">
+          <ul className="flex space-x-6">
+            <li>
+              <Link
+                exact
+                to="/"
+                className="text-gray-700 hover:text-gray-900 transition-colors"
+              >
+                Home
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/products"
+                className="text-gray-700 hover:text-gray-900 transition-colors"
+              >
+                Products
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/about"
+                className="text-gray-700 hover:text-gray-900 transition-colors"
+              >
+                About
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/contact"
+                className="text-gray-700 hover:text-gray-900 transition-colors"
+              >
+                Contact
+              </Link>
+            </li>
+          </ul>
+        </div>
+
+        {/* Buttons */}
+        <div className="hidden lg:flex items-center gap-4">
+          <Link
+            to="/login"
+            className="px-4 py-2 border border-green-500 text-green-500 rounded hover:bg-green-500 hover:text-white transition"
+          >
+            <i className="fa fa-sign-in mr-1"></i> Login
+          </Link>
+          <Link
+            to="/register"
+            className="px-4 py-2 border border-blue-500 text-blue-500 rounded hover:bg-blue-500 hover:text-white transition"
+          >
+            <i className="fa fa-user-plus mr-1"></i> Register
+          </Link>
+          <Link
+            to="/cart"
+            className="px-4 py-2 border border-gray-700 text-gray-700 rounded hover:bg-gray-700 hover:text-white transition"
+          >
+            <i className="fa fa-shopping-cart mr-1"></i> Cart(0)
+          </Link>
+        </div>
+      </div>
+    </nav>
+  );
 };
 
 export default Navbar;
